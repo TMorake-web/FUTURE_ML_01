@@ -15,7 +15,7 @@ The project uses the [Store Sales — Time Series Forecasting dataset from Kaggl
 
 The `train.csv` file contains 3,000,888 daily records from 1 January 2013 to 15 August 2017. It includes store, product family, date, sales, and promotion information.
 
-The raw dataset is not included in this repository. Download `train.csv` from Kaggle and place it in the project folder before running either workflow.
+The original dataset is not included in this repository. Download `train.csv` from Kaggle and place it in the project folder before running either workflow.
 
 ## Technologies
 
@@ -82,67 +82,3 @@ From the project folder, install dependencies:
 
 ```powershell
 python -m pip install -r requirements.txt
-```
-
-Download `train.csv` from Kaggle and place it in the project folder.
-
-### Run the original daily workflow
-
-```powershell
-python main.py
-```
-
-This creates the original outputs in `outputs/`.
-
-### Run the weekly rebuild
-
-First prepare the weekly data:
-
-```powershell
-python forecast_by_store_family.py
-```
-
-Then evaluate the model and create forecasts:
-
-```powershell
-python forecast_and_evaluate.py
-```
-
-This creates the rebuild outputs in `outputs_v2/`. The generated `weekly_sales.csv` is an intermediate file and does not need to be uploaded.
-
-## Results and output files
-
-### Original workflow: `outputs/`
-
-- `historical_sales.png` — historical total daily sales.
-- `validation_comparison.png` — actual and predicted sales during validation.
-- `future_forecast.png` — historical sales and the 30-day forecast.
-- `validation_results.csv` — actual and predicted values for validation.
-- `model_comparison.csv` — original model and baseline metrics.
-- `sales_forecast.csv` — original daily forecast.
-
-### Weekly rebuild: `outputs_v2/`
-
-- `forecast_evaluation_v2.png` — comparison of historical forecast errors.
-- `forecast_summary_v2.txt` — plain-English summary of the rebuild results.
-- `model_comparison_v2.csv` — model and baseline metrics.
-- `sales_forecast_v2.csv` — 12-week forecasts by store and product family.
-- `data_summary.txt` — summary of the data preparation.
-- `weekly_sales.csv` — generated intermediate data; not required in the repository.
-
-![Weekly rebuild model and baseline error comparison](outputs_v2/forecast_evaluation_v2.png)
-
-## Limitations
-
-- The dataset ends in August 2017, so neither workflow creates a forecast for current business conditions.
-- The rebuild predicts weekly sales by store and product family. Sales are not necessarily the same as unconstrained customer demand; for example, an item may have been unavailable.
-- The dataset does not provide stock on hand or supplier delivery times. The forecasts therefore cannot calculate exact reorder quantities.
-- The rebuild does not use all potentially useful information, such as promotions, holidays, or store details, as model features.
-- Forecasts are planning support and should be reviewed by people familiar with the business.
-
-## Project Information
-
-- **Program:** Future Interns Machine Learning Internship
-- **Track:** Machine Learning
-- **Task:** Task 1 — Sales and Demand Forecasting
-- **Repository:** `FUTURE_ML_01`
