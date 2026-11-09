@@ -1,0 +1,20 @@
+TASK 1 REBUILD — WEEKLY SALES PLANNING
+
+Complete weekly records evaluated: 21,384
+Historical evaluation periods: 3
+Machine-learning model MAE: 297.99
+Seasonal baseline MAE: 552.66
+Machine-learning model WAPE: 8.78%
+Seasonal baseline WAPE: 16.29%
+MAE improvement compared with baseline: +46.08%
+
+How to read the results:
+- Lower error means predictions were closer to actual sales.
+- Positive improvement means the model had lower error.
+- Negative improvement means the baseline performed better.
+
+Limits:
+- Forecasts estimate weekly sales by store and product family.
+- The dataset does not include stock levels or supplier lead times.
+- Sales forecasts cannot tell us exact amounts to order.
+- Use the results to support planning and human decisions.

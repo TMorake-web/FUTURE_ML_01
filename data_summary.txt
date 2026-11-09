@@ -1,0 +1,15 @@
+TASK 1 REBUILD: DATA SUMMARY
+
+Rows read from train.csv: 3,000,888
+Rows with missing or invalid required values: 0
+Usable rows: 3,000,888
+First data date: 2013-01-01
+Last data date: 2017-08-15
+Number of stores: 54
+Number of product families: 33
+Store and product-family combinations: 1,782
+Weekly store-family records created: 431,244
+Weekly sales file: C:\Users\kayle\OneDrive\Desktop\FUTURE_ML_01\outputs_v2\weekly_sales.csv
+
+Sales are totaled separately for each store and product family.
+Partial calendar weeks at the dataset boundaries are marked in the CSV.
